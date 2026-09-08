@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+}
+
+@import "./components/lightswind.css";
+
+
+/* Latin stays on Geist Sans; Arabic glyphs fall through to IBM Plex Sans
+   Arabic. In RTL the Arabic face leads so mixed lines look native, while
+   Latin technical terms (FortiGate, React, …) still render in Geist. */
+* {
+  font-family: "Geist Sans", "IBM Plex Sans Arabic", sans-serif !important;
+}
+
+[dir="rtl"] * {
+  font-family: "IBM Plex Sans Arabic", "Geist Sans", sans-serif !important;
+}
+
+/* Keep monospaced accents (badge id, percentages) truly monospaced. */
+.font-mono,
+[dir="rtl"] .font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+}

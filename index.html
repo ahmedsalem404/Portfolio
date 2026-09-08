@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head >
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmed Fadhl | Portfolio</title>
+    <script>
+      // Apply the saved language before React boots so the page never
+      // flashes in the wrong direction. Mirrors the theme bootstrap.
+      (function () {
+        try {
+          var lang = localStorage.getItem("lang") === "ar" ? "ar" : "en";
+          var root = document.documentElement;
+          root.lang = lang;
+          root.dir = lang === "ar" ? "rtl" : "ltr";
+          if (lang === "ar") document.title = "أحمد فضل | البورتفوليو";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
