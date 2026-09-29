@@ -4,19 +4,18 @@ import Header from "./components/Header/Header";
 import { HeroSection } from "./components/HeroSection/HeroSection";
 import { AboutSection } from "./components/AboutSection/AboutSection";
 import { ServicesSection } from "./components/ServicesSection/ServicesSection";
-// import { ProjectsSection } from "./components/ProjectsSection/ProjectsSection";
+import { ProjectsSection } from "./components/ProjectsSection/ProjectsSection";
 import { EducationSection } from "./components/EducationSection/EducationSection";
 import { CareerTimeline } from "./components/CareerSection/CareerTimeline";
 // import TestimonialsSection from "./components/TestimonialsSection/TestimonialsSection";
 import { ContactSection } from "./components/ContactSection/ContactSection";
 import { Footer } from "./components/Footer/Footer";
 import ReactLenis from "lenis/react";
-import { Home, User, GraduationCap, Briefcase, Wrench, Send } from "lucide-react";
+import { Home, User, GraduationCap, Briefcase, Wrench, Send, FolderKanban } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "./i18n/LanguageProvider";
 
 import Dock from "./components/lightswind/dock";
-import { SmoothCursor } from "./components/lightswind/smooth-cursor";
 import { Toaster } from "./components/lightswind/toaster";
 
 function App() {
@@ -54,6 +53,7 @@ function App() {
     { icon: <Home size={20} />, label: t.nav.home, onClick: () => scrollToSection("hero") },
     { icon: <User size={20} />, label: t.nav.about, onClick: () => scrollToSection("about") },
     { icon: <Wrench size={20} />, label: t.nav.services, onClick: () => scrollToSection("services") },
+    { icon: <FolderKanban size={20} />, label: t.nav.projects, onClick: () => scrollToSection("projects") },
     { icon: <Briefcase size={20} />, label: t.nav.career, onClick: () => scrollToSection("career") },
     { icon: <GraduationCap size={20} />, label: t.nav.education, onClick: () => scrollToSection("education") },
     { icon: <Send size={20} />, label: t.nav.contact, onClick: () => scrollToSection("contact") },
@@ -61,7 +61,6 @@ function App() {
 
   return (
     <div className="bg-transparent min-h-screen relative overflow-x-hidden selection:bg-primary/30 selection:text-primary-foreground">
-      <SmoothCursor glowEffect showTrail trailLength={4} />
       <ReactLenis root options={{ smoothWheel: true, duration: 1.2 }}>
         <Header />
 
@@ -69,7 +68,7 @@ function App() {
           <HeroSection />
           <AboutSection />
           <ServicesSection />
-          {/* <ProjectsSection /> - Hidden until user adds projects */}
+          <ProjectsSection />
           <CareerTimeline />
           <EducationSection />
           {/* <TestimonialsSection /> - Hidden per user request */}
